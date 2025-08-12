@@ -2,5 +2,14 @@
 @inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage<ContentModels.HomePage>
 @using ContentModels = Umbraco.Cms.Web.Common.PublishedModels;
 @{
-	Layout = null;
+    var ctaLink = Model.CallToAction?.FirstOrDefault();
+}
+
+<h1>@Model.HeroTitle</h1>
+<p>@Model.HeroSubtitle</p>
+
+
+@if (ctaLink != null)
+{
+    <a href="@ctaLink.Url">@ctaLink.Name</a>
 }

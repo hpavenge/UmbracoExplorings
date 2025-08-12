@@ -1,0 +1,15 @@
+﻿@model MyUmbracoSite.Models.ContactFormModel
+
+@if (TempData["Success"] != null)
+{
+    <p class="success">@TempData["Success"]</p>
+}
+else
+{
+    <form method="post" asp-controller="ContactPage" asp-action="SubmitForm">
+        <input type="text" name="Name" placeholder="Name" value="@Model?.Name" />
+        <input type="email" name="Email" placeholder="Email" value="@Model?.Email" />
+        <textarea name="Message" placeholder="Your message...">@Model?.Message</textarea>
+        <button type="submit">Send</button>
+    </form>
+}
